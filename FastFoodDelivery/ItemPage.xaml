@@ -1,0 +1,66 @@
+﻿<Page x:Class="FastFoodDelivery.ItemPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FastFoodDelivery"
+      mc:Ignorable="d" 
+       Title="ItemPage" d:DesignHeight="661" d:DesignWidth="1194">
+
+    <Grid Background="#222831">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="160"  Width="160"/>
+            <ColumnDefinition MinWidth="160" Width="160"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+
+        <Image Source="Images/dish.png"  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="33 0 0 0"
+               Width="250" Height="250" MinWidth="200" MinHeight="200" />
+
+        <Label x:Name="Logo_label" Grid.Row="0" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Column="0" Grid.ColumnSpan="2" Margin="130 0 0 0"
+               Height="56"  
+        Foreground="#EEEEEE" Content="FFD" FontSize="30" FontFamily="/Fonts/#Cabin"/>
+
+        <TextBlock x:Name="Name_box"  HorizontalAlignment="Left"  VerticalAlignment="Top"  Grid.Column="0" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="67,122,0,0"
+               Height="56"  
+               Foreground="#EEEEEE" Text="Name Product" FontSize="30" FontFamily="/Fonts/#Cabin"/>
+
+
+        <StackPanel  HorizontalAlignment="Left" MinWidth="320"  Grid.Row="3" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="3" Margin="5,36,0,5" Width="480" >
+
+            <TextBlock x:Name="Price_box" HorizontalAlignment="Stretch"
+                Height="56"  
+                Foreground="#EEEEEE" Text="Name Product" FontSize="30" FontFamily="/Fonts/#Cabin" />
+            <TextBlock x:Name="ItemType_box" HorizontalAlignment="Stretch"
+                Height="56"  
+                Foreground="#EEEEEE" Text="Name Product" FontSize="30" FontFamily="/Fonts/#Cabin"/>
+            <TextBlock x:Name="StockCount_box" HorizontalAlignment="Stretch"
+                Height="56"  
+                Foreground="#EEEEEE" Text="Name Product" FontSize="30" FontFamily="/Fonts/#Cabin"/>
+            <TextBlock x:Name="ForAdult_box"  HorizontalAlignment="Stretch"
+                Height="56"  
+                Foreground="#EEEEEE" Text="Name Product" FontSize="30" FontFamily="/Fonts/#Cabin"/>
+
+        </StackPanel>
+
+
+
+
+
+
+    </Grid>
+
+</Page>

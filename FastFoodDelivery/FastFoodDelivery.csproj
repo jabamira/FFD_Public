@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Fonts\Cabin-Italic-VariableFont_wdth,wght.ttf" />
+    <None Remove="Fonts\Cabin-VariableFont_wdth,wght.ttf" />
+    <None Remove="Images\dish.png" />
+    <None Remove="Images\eyes.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+
+ 
+
+    <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="8.0.0" />
+
+ 
+
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.0" />
+
+ 
+
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+
+ 
+
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" />
+
+ 
+
+    <PackageReference Include="SQLite.CodeFirst" Version="1.7.0.36" />
+
+ 
+
+    <PackageReference Include="System.Data.SQLite" Version="1.0.119" />
+
+    <PackageReference Include="System.Drawing.Common" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\Cabin-Italic-VariableFont_wdth,wght.ttf" />
+    <Resource Include="Fonts\Cabin-VariableFont_wdth,wght.ttf" />
+    <Content Include="Images\dish.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\eyes.png" />
+  </ItemGroup>
+
+</Project>
