@@ -15,22 +15,13 @@ namespace FastFoodDelivery
             */
 
             //MainFrame.Navigate(new LoginPage());
-            //ShopPage();
-            ItemPage();
+            PageFunc.OpenShopPage();
+            //ItemPage();
 
 
 
         }
-        public static void ShopPage() 
-        {
-            var mainWindow = System.Windows.Application.Current.MainWindow as MainWindow;
-            mainWindow.MainFrame.Navigate(new ShopPage());
-        }
-        public static void ItemPage()
-        {
-            var mainWindow = System.Windows.Application.Current.MainWindow as MainWindow;
-            mainWindow.MainFrame.Navigate(new ItemPage());
-        }
+       
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {

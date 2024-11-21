@@ -74,7 +74,7 @@ namespace FastFoodDelivery
             {
                 var messageBox = new InfoBox("Login is Successful");
                 SetCenter(messageBox);
-                MainWindow.ShopPage();
+                PageFunc.OpenShopPage();
 
 
 

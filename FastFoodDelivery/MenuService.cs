@@ -17,16 +17,22 @@ namespace FastFoodDelivery
             {
                 MenuItemId = item.MenuItemId,
                 Name = item.Name,
-                ItemType = item.ItemType,
                 ShortDescript = item.ShortDescript,
+                ItemType = item.ItemType,
                 Price = item.Price,
-                Thumbnails = item.Thumbnails
+                Thumbnails = item.Thumbnails,
+                RestaurantId = item.RestaurantId,
+                Description = item.Description,
+                StockCount = item.StockCount,
+                ForAdult = item.ForAdult,
+                SpecialOffer = item.SpecialOffer
+
             }).ToList();
 
             return new ObservableCollection<ItemMenuShort>(result);
         }
 
-        public static ObservableCollection<ItemMenuShort> GetProducts()
+        public static ObservableCollection<ItemMenuShort> GetProducts() 
         {
             using (ApplicationContext db = new ApplicationContext())
             {
@@ -118,7 +124,27 @@ namespace FastFoodDelivery
             }
 
         }
-
+        public static byte[] LoadImage(int id) 
+        {
+            using (ApplicationContext db = new ApplicationContext())
+            {
+               
+                var imageData = db.ItemsMenu
+                    .Where(item => item.MenuItemId == id)
+                    .Select(item => item.ImageData)
+                    .FirstOrDefault();
+                if (imageData != null)
+                {
+                    return imageData;
+                }
+                else 
+                {
+                    return null;
+                }
+               
+            }
+            
+        }
     }
 
 }

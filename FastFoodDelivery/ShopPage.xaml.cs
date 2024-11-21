@@ -55,7 +55,7 @@ namespace FastFoodDelivery
 
         }
         
-
+        //LOADING_ITEMS
         public async void Load_menu_items_local() 
         {
             Finding = false;
@@ -113,27 +113,7 @@ namespace FastFoodDelivery
         }
        
 
-        
-
-
-        private void Item_btn_Click(object sender, RoutedEventArgs e)
-        {
-            
-            
-            if (sender != null && sender is Button button) 
-            {
-
-                var clickedItem = button.CommandParameter as ItemMenuShort; 
-
-                if (clickedItem != null)
-                {
-                   
-                    MessageBox.Show($"Ты нажал на {clickedItem.Name} - цена: {clickedItem.Price}");
-                }
-            }
-           
-        }
-
+        //Serch box LOGIC 
         private void Search_box_GotFocus(object sender, RoutedEventArgs e)
         {
 
@@ -153,10 +133,6 @@ namespace FastFoodDelivery
 
             }
         }
-
-       
-       
-
         private void Search_box_TextChanged(object sender, TextChangedEventArgs e)
         {
            
@@ -184,12 +160,28 @@ namespace FastFoodDelivery
 
         }
 
-        
-        
 
+        //CLICK
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             ApplicationContext.UseMySql = !ApplicationContext.UseMySql;
+        }
+        private void Item_btn_Click(object sender, RoutedEventArgs e)
+        {
+
+
+            if (sender != null && sender is Button button)
+            {
+
+                var clickedItem = button.CommandParameter as ItemMenuShort;
+
+                if (clickedItem != null)
+                {
+
+                    PageFunc.OpenPage(new ItemPage(clickedItem));
+                }
+            }
+
         }
 
 
@@ -205,13 +197,14 @@ namespace FastFoodDelivery
         
 
         }
-
         private void ShopPage_SizeChanged(object sender, SizeChangedEventArgs e)
         {
 
 
 
         }
+
+
         //LOADERS
         private void Search_box_Loaded(object sender, RoutedEventArgs e)
         {
@@ -220,6 +213,11 @@ namespace FastFoodDelivery
             Background_Search_box = template?.FindName("Background_Search_box", Search_box) as Rectangle;
             Line_Search = template?.FindName("Line_Search", Search_box) as Rectangle;
 
+        }
+
+        private void User_btn_Click(object sender, RoutedEventArgs e)
+        {
+            PageFunc.OpenPage(new UserPage());
         }
     }
 }

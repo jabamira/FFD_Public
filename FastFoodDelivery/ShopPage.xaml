@@ -34,10 +34,52 @@
 
         <Label x:Name="Logo_label" Grid.Row="0" HorizontalAlignment="Center"  VerticalAlignment="Top" Height="56"  
                Foreground="#EEEEEE" Content="FFD" FontSize="30" FontFamily="/Fonts/#Cabin"/>
+        <Button x:Name="User_btn" Grid.Column="4"  Grid.Row="0" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Right"  Margin="0,0,5,42"  BorderBrush="Transparent" Cursor="Hand"   Click="User_btn_Click" >
+
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Grid>
+                                    <Rectangle x:Name="User_btn_rect"  Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                             Fill="#393E46"   RadiusX="30" RadiusY="30"
+                             MinWidth="80" MaxWidth="100" Height="60" />
+                                    <Rectangle x:Name="User_btn_howered"  Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center"
+                             RadiusX="30" RadiusY="30" Fill="#EEEEEE" 
+                             MinWidth="80" MaxWidth="100" Height="60" Opacity="1"  />
+                                    <Image x:Name="ItemImage" Source="Images/user.png"  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" 
+                                   Width="35" Height="35"  
+                                   />
+                                    <Rectangle  x:Name="User_log_btn" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 5"
+                             MinWidth="35"   Height="5" 
+                             Fill="#00ADB5"  RadiusX="5" RadiusY="5"   />
+                                </Grid>
+
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="User_btn_howered" Property="Opacity" Value="0.1" />
+
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="False">
+                                        <Setter TargetName="User_btn_howered" Property="Opacity" Value="0.0" />
+
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+
+                        </Setter.Value>
+
+                    </Setter>
+                </Style>
+
+            </Button.Style>
+
+        </Button>
 
 
-       
-        
+
+
         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="5" Grid.Column="0" >
             
             
