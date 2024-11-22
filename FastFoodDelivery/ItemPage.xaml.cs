@@ -9,9 +9,11 @@ namespace FastFoodDelivery
 {
     public partial class ItemPage : Page
     {
-        public ItemPage(ItemMenuShort Preitem) 
+        private UserAuth User;
+        public ItemPage(ItemMenuShort Preitem,  UserAuth user) 
         {
             InitializeComponent();
+            User = user;
             ItemImage.Source = Preitem.ImageSourceThumbNails;
             InitializationItemMenu(Preitem);
 
@@ -78,12 +80,18 @@ namespace FastFoodDelivery
         //CLICK
         private void Back_btn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+         
             PageFunc.GoBack(this.NavigationService);
+          
+            
         }
 
         private void User_btn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            PageFunc.OpenPage(new UserPage());
+           
+            PageFunc.OpenPage(new UserPage(User),User,this.NavigationService);
+          
+            
         }
     }
 }

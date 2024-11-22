@@ -14,8 +14,8 @@ namespace FastFoodDelivery
             
             */
 
-            //MainFrame.Navigate(new LoginPage());
-            PageFunc.OpenShopPage();
+            MainFrame.Navigate(new LoginPage());
+            //PageFunc.OpenShopPage();
             //ItemPage();
 
 

@@ -4,6 +4,7 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Navigation;
 using Rectangle = System.Windows.Shapes.Rectangle;
 
 namespace FastFoodDelivery
@@ -21,16 +22,17 @@ namespace FastFoodDelivery
 
         public bool Finding = false;
 
+        private UserAuth User;
         private CancellationTokenSource ?loading_token;
         private string Search_box_previous_text;
        
 
 
-        public ShopPage()
+        public ShopPage(UserAuth user)
 
         {
             InitializeComponent();
-
+            User = user;
             ItemsMenu = new ObservableCollection<ItemMenuShort>();
             ProductsItemsControl.ItemsSource = ItemsMenu;
 
@@ -166,7 +168,7 @@ namespace FastFoodDelivery
         {
             ApplicationContext.UseMySql = !ApplicationContext.UseMySql;
         }
-        private void Item_btn_Click(object sender, RoutedEventArgs e)
+        private async void Item_btn_Click(object sender, RoutedEventArgs e)
         {
 
 
@@ -177,14 +179,18 @@ namespace FastFoodDelivery
 
                 if (clickedItem != null)
                 {
+                    var nav = this.NavigationService;
+                    PageFunc.OpenPage(new ItemPage(clickedItem, User),User, nav);
+                
 
-                    PageFunc.OpenPage(new ItemPage(clickedItem));
+
+
                 }
             }
 
         }
-
-
+        
+       
         //CHANGERS
 
         private void ComboBox_ItemType_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -215,9 +221,18 @@ namespace FastFoodDelivery
 
         }
 
-        private void User_btn_Click(object sender, RoutedEventArgs e)
+        private async void User_btn_Click(object sender, RoutedEventArgs e)
         {
-            PageFunc.OpenPage(new UserPage());
+
+            var nav = this.NavigationService;
+            PageFunc.OpenPage(new UserPage(User),User,nav);
+       
+
+            
+          
+
+
+            
         }
     }
 }

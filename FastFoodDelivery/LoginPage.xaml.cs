@@ -68,13 +68,15 @@ namespace FastFoodDelivery
             Debug.WriteLine("Login try");
             Login_btn.IsEnabled = false;
             donutSpinner.Visibility = Visibility.Visible;
-            byte result = await Task.Run(() => DataBaseHelper.Login(login, password));
+            UserAuth User = new();
+            byte result = await Task.Run(() => DataBaseHelper.Login(login, password, User));
             donutSpinner.Visibility = Visibility.Collapsed;
             if (result == 1)
             {
                 var messageBox = new InfoBox("Login is Successful");
+                Debug.WriteLine(User.TimeRegister);
                 SetCenter(messageBox);
-                PageFunc.OpenShopPage();
+                PageFunc.OpenPage(new ShopPage(User),User,this.NavigationService);
 
 
 

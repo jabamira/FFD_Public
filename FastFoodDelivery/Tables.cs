@@ -18,6 +18,7 @@ namespace FastFoodDelivery
         public required bool ForAdult { get; set; }
         public required bool SpecialOffer { get; set; }
 
+
         public BitmapImage ImageSourceThumbNails
         {
             get
@@ -56,6 +57,7 @@ namespace FastFoodDelivery
         public int Id { get; set; }
         public required string Login { get; set; }
         public required string Password { get; set; }
+        public required string AccessToken { get; set; }
         public DateTime? TimeRegister { get; set; }
         public bool Admin { get; set; }
     }

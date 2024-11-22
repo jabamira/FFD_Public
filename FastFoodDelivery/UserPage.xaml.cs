@@ -18,11 +18,14 @@ namespace FastFoodDelivery
     /// <summary>
     /// Interaction logic for UserPage.xaml
     /// </summary>
+
     public partial class UserPage : Page
     {
-        public UserPage()
+        public UserAuth User;
+        public UserPage(UserAuth user)
         {
             InitializeComponent();
+            User = user;
         }
 
         //KEYS
@@ -34,7 +37,7 @@ namespace FastFoodDelivery
         //CLICK
         private void Shop_btn_Click(object sender, RoutedEventArgs e)
         {
-            PageFunc.OpenShopPage();
+            PageFunc.OpenPage(new ShopPage(User), User, this.NavigationService);
         }
 
         private void Back_btn_Click(object sender, RoutedEventArgs e)

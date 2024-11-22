@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.Windows;
+using System.Windows.Navigation;
 
 
 namespace FastFoodDelivery
@@ -29,7 +30,7 @@ namespace FastFoodDelivery
                 else 
                 {
                     string passwordHash = ComputeSha256Hash(password);
-                    User user1 = new User { Login = login, Password = passwordHash, TimeRegister = time };
+                    User user1 = new User { Login = login, Password = passwordHash, TimeRegister = time , AccessToken =TokenGenerator.GenerateAccessToken() };
 
                     db.Users.Add(user1);
                     db.SaveChanges();
@@ -39,7 +40,7 @@ namespace FastFoodDelivery
                
             }
         }
-        public static byte Login(string login, string password)
+        public static byte Login(string login, string password, UserAuth User)
         {
             Debug.WriteLine("Login attempt");
             using (ApplicationContext db = new ApplicationContext())
@@ -52,6 +53,12 @@ namespace FastFoodDelivery
                     string passwordHash = ComputeSha256Hash(password);
                     if (user.Password == passwordHash)
                     {
+                        user.AccessToken = TokenGenerator.GenerateAccessToken();
+                        db.SaveChanges();
+                        User.Id = user.Id;
+                        User.Admin = user.Admin;
+                        User.AccessToken = user.AccessToken;
+                        User.TimeRegister = user.TimeRegister;
                         Debug.WriteLine("Login successful!");
                         return 1;
                     }
@@ -67,6 +74,20 @@ namespace FastFoodDelivery
                     return 2; 
                 }
             }
+        }
+        public static bool CheckAuth(string token)
+        {
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                var user =  db.Users
+               .FirstOrDefault(u => u.AccessToken == token);
+                return user != null;
+            }
+        }
+        public static async void CheckAuthLocal(Task<bool> isAuthTask, NavigationService nav)
+        {
+            bool auth = await isAuthTask;
+            if (!auth) PageFunc.GoToFirstPage(nav);
         }
         public static string ComputeSha256Hash(string password)
         {
