@@ -43,7 +43,8 @@ namespace FastFoodDelivery
 
         {
             InitializeComponent();
-            
+           
+           
 
 
 
@@ -191,6 +192,8 @@ namespace FastFoodDelivery
         //CLICK
         private void Login_btn_Click(object sender, RoutedEventArgs e)
         {
+            UserAuth user = new UserAuth(1,"52", "6270FF2B744297F342350778CACE1899356F30AF3738A76144C29BAA3E2828A2", null, true);
+            PageFunc.OpenPage(new ShopPage(user), user, this.NavigationService);
             if (register) 
             {
                

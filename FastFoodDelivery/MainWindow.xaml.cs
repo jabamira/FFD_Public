@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Data;
+using System.Windows;
 
 namespace FastFoodDelivery
 {
@@ -13,9 +14,10 @@ namespace FastFoodDelivery
             /*
             
             */
-
+            
             MainFrame.Navigate(new LoginPage());
-            //PageFunc.OpenShopPage();
+            
+           
             //ItemPage();
 
 

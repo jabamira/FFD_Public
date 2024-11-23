@@ -9,12 +9,15 @@ namespace FastFoodDelivery
     public class UserAuth 
     {
         public int Id;
+        public string Login;
         public string AccessToken;
         public DateTime? TimeRegister;
         public bool Admin;
-        public UserAuth(int id, string accesstoken, DateTime? timeregistration, bool admin) 
+
+        public UserAuth(int id,string login, string accesstoken, DateTime? timeregistration, bool admin) 
         {
             Id = id;
+            Login = login;
             AccessToken = accesstoken;
             TimeRegister = timeregistration;
             Admin = admin;  

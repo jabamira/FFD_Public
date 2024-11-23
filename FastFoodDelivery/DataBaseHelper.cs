@@ -57,6 +57,7 @@ namespace FastFoodDelivery
                         db.SaveChanges();
                         User.Id = user.Id;
                         User.Admin = user.Admin;
+                        User.Login = user.Login;
                         User.AccessToken = user.AccessToken;
                         User.TimeRegister = user.TimeRegister;
                         Debug.WriteLine("Login successful!");

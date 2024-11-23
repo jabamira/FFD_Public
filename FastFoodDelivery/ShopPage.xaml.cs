@@ -36,11 +36,9 @@ namespace FastFoodDelivery
             ItemsMenu = new ObservableCollection<ItemMenuShort>();
             ProductsItemsControl.ItemsSource = ItemsMenu;
 
-            
             ComboBox_ItemType.ItemsSource = ItemTypes;
 
             Search_box_previous_text = Search_box.Text.Trim();
-
 
             {
                 //MenuService.AddNewMenuItem("Чизбургер", 681, "Сочный бургер с сыром", "Чи́збургер (англ. cheeseburger, от cheese — сыр) — это гамбургер с сыром. Традиционно ломтик сыра кладется поверх мясной котлеты. Сыр обычно добавляют в готовящийся гамбургер незадолго до подачи на стол, что позволяет сыру расплавиться..", 12.0m, "Main Course", 1020, false, true, "C:\\Users\\artem\\Downloads\\burger.png");
@@ -131,44 +129,40 @@ namespace FastFoodDelivery
             if (Search_box.Text.Length == 0)
             {
                 Search_box.Text = "Search Yummy Here!";
-               
+                firstsearch = true;
 
             }
         }
+        private bool firstsearch = true;
         private void Search_box_TextChanged(object sender, TextChangedEventArgs e)
         {
            
-            Debug.WriteLine("textchaged");
+            Debug.WriteLine(firstsearch);
+            Debug.WriteLine(Search_box_previous_text);
             if (Search_box != null && Line_Search != null)
             {
-                if (Search_box_previous_text != "Search Yummy Here!" && Search_box_previous_text.Trim() != "") 
+                if (Search_box.Text!="" && Search_box.Text!= "Search Yummy Here!" || !firstsearch && Search_box.Text == "") 
                 {
                     Load_menu_items_local();
+                    firstsearch = false;
                 }
-               
-                
 
-                TextBoxResizer.ResizeTextBox(Search_box, Line_Search);
-
-                
+                TextBoxResizer.ResizeTextBox(Search_box, Line_Search);               
                 Search_box_previous_text = Search_box.Text;
-              
             }
             else
             {
                 Debug.WriteLine("null Search_box or Line_Search");
             }
-           
 
         }
-
 
         //CLICK
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             ApplicationContext.UseMySql = !ApplicationContext.UseMySql;
         }
-        private async void Item_btn_Click(object sender, RoutedEventArgs e)
+        private void Item_btn_Click(object sender, RoutedEventArgs e)
         {
 
 
@@ -182,9 +176,6 @@ namespace FastFoodDelivery
                     var nav = this.NavigationService;
                     PageFunc.OpenPage(new ItemPage(clickedItem, User),User, nav);
                 
-
-
-
                 }
             }
 
@@ -226,13 +217,7 @@ namespace FastFoodDelivery
 
             var nav = this.NavigationService;
             PageFunc.OpenPage(new UserPage(User),User,nav);
-       
-
-            
-          
-
-
-            
+                
         }
     }
 }
