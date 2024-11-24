@@ -10,7 +10,7 @@ namespace FastFoodDelivery
     public partial class ItemPage : Page
     {
         private UserAuth User;
-        public ItemPage(ItemMenuShort Preitem,  UserAuth user) 
+        public ItemPage(ItemMenuShort Preitem, UserAuth user)
         {
             InitializeComponent();
             User = user;
@@ -30,7 +30,7 @@ namespace FastFoodDelivery
             StockCount_box.Text = "In Stock: " + Preitem.StockCount.ToString();
             if (Preitem.ForAdult)
             {
-                ForAdult_box.Text = "Only For Adults 18+";
+                ForAdult_box.Text = "Only For Adults 18++";
             }
             else 
             {
