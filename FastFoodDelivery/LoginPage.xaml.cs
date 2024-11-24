@@ -287,6 +287,8 @@ namespace FastFoodDelivery
                 Not_reg_label.Content = "Go to login";
                 Not_reg_label.Width = 90;
                 Reply_password_container.Visibility = Visibility.Visible;
+                Login_box.Margin = new Thickness(0,100,0,40);
+          
                 if (Password_check_box.IsChecked == true)
                 {
                     Text_reply_box.Visibility = Visibility.Visible;
@@ -313,7 +315,9 @@ namespace FastFoodDelivery
                 Line_log_btn.Width = 65;
                 Not_reg_label.Content = "Not register yet";
                 Not_reg_label.Width = 110;
-                Reply_password_container.Visibility = Visibility.Hidden;
+                Reply_password_container.Visibility = Visibility.Collapsed;
+                Login_box.Margin = new Thickness(0, 0, 0, 40);
+
                 Match_label.Visibility = Visibility.Hidden;
                 if (Password_check_box.IsChecked == true)
                 {
@@ -507,15 +511,7 @@ namespace FastFoodDelivery
 
         //LOADERS
 
-        private void Password_container_Loaded(object sender, RoutedEventArgs e)
-        {
-            var template = Password_container.Template as ControlTemplate;
-            Password_box = template?.FindName("Password_box", Password_container) as PasswordBox;
-            Text_Password_box = template?.FindName("Text_Password_box", Password_container) as TextBox;
-            Line_password = template?.FindName("Line_password", Password_container) as Rectangle;
-            
 
-        }
         private void Login_box_Loaded(object sender, RoutedEventArgs e)
         {
             var template = Login_box.Template as ControlTemplate;
@@ -523,24 +519,65 @@ namespace FastFoodDelivery
             Background_login_log = template?.FindName("Background_login_log", Login_box) as Rectangle;
             Line_login = template?.FindName("Line_login", Login_box) as Rectangle;
 
-            template = Reply_password_container.Template as ControlTemplate;
-            Text_reply_box = template?.FindName("Text_reply_box", Reply_password_container) as TextBox;
-            Password_reply_box = template?.FindName("Password_reply_box", Reply_password_container) as PasswordBox;
-            Line_password_reply = template?.FindName("Line_password_reply", Reply_password_container) as Rectangle;
-            Login_box.Text = "Artemka";
             
+            Login_box.Text = "Artemka";
+
 
             TextBoxResizer.ResizeTextBox(Login_box, Line_login);
             TextBoxResizer.ResizeTextBox(Text_reply_box, Line_password_reply);
 
+            if (sender is FrameworkElement AnimObj)
+            {
+                AnimObj.GotFocus += (sender, e) => Animations.StartAnimation(Animations.CreateScaleAnimationStandartIn(), sender);
+                AnimObj.LostFocus += (sender, e) => Animations.StartAnimation(Animations.CreateScaleAnimationStandartOut(), sender);
+            }
 
         }
+        private void Password_container_Loaded(object sender, RoutedEventArgs e)
+        {
+            var template = Password_container.Template as ControlTemplate;
+            Password_box = template?.FindName("Password_box", Password_container) as PasswordBox;
+            Text_Password_box = template?.FindName("Text_Password_box", Password_container) as TextBox;
+            Line_password = template?.FindName("Line_password", Password_container) as Rectangle;
+
+            if (sender is FrameworkElement AnimObj)
+            {
+                AnimObj.GotFocus += (sender, e) => Animations.StartAnimation(Animations.CreateScaleAnimationStandartIn(), sender);
+                AnimObj.LostFocus += (sender, e) => Animations.StartAnimation(Animations.CreateScaleAnimationStandartOut(), sender);
+            }
+        }
+
+        private void Reply_password_container_Loaded(object sender, RoutedEventArgs e)
+        {
+            var template = Reply_password_container.Template as ControlTemplate;
+            Text_reply_box = template?.FindName("Text_reply_box", Reply_password_container) as TextBox;
+            Password_reply_box = template?.FindName("Password_reply_box", Reply_password_container) as PasswordBox;
+            Line_password_reply = template?.FindName("Line_password_reply", Reply_password_container) as Rectangle;
+            Reply_password_container.Visibility = Visibility.Collapsed;
+
+            if (sender is FrameworkElement AnimObj)
+            {
+                AnimObj.GotFocus += (sender, e) => Animations.StartAnimation(Animations.CreateScaleAnimationStandartIn(), sender);
+                AnimObj.LostFocus += (sender, e) => Animations.StartAnimation(Animations.CreateScaleAnimationStandartOut(), sender);
+            }
+          
+           
+               
+        }
+        
         private void Login_btn_Loaded(object sender, RoutedEventArgs e)
         {
             var template = Login_btn.Template as ControlTemplate;
             Login_label = template?.FindName("Login_label", Login_btn) as Label;
             Line_log_btn = template?.FindName("Line_log_btn", Login_btn) as Rectangle;
+
+            if (sender is FrameworkElement AnimObj)
+            {
+                AnimObj.MouseEnter += (sender, e) => Animations.StartAnimation(Animations.CreateScaleAnimationStandartIn(), sender);
+                AnimObj.MouseLeave += (sender, e) => Animations.StartAnimation(Animations.CreateScaleAnimationStandartOut(), sender);
+            }
         }
 
+        
     }
 }

@@ -34,7 +34,7 @@
 
         <Label x:Name="Logo_label" Grid.Row="0" HorizontalAlignment="Center"  VerticalAlignment="Top" Height="56"  
                Foreground="#EEEEEE" Content="FFD" FontSize="30" FontFamily="/Fonts/#Cabin"/>
-        <Button x:Name="User_btn" Grid.Column="4"  Grid.Row="0" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Right"  Margin="0,0,5,42"  BorderBrush="Transparent" Cursor="Hand"   Click="User_btn_Click" >
+        <Button x:Name="User_btn" Grid.Column="4"  Grid.Row="0" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Right"  Margin="0,0,5,42"  BorderBrush="Transparent" Cursor="Hand"   Click="User_btn_Click" Loaded="User_btn_Loaded" >
 
             <Button.Style>
                 <Style TargetType="{x:Type Button}">

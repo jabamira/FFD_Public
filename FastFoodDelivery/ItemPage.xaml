@@ -26,7 +26,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Button x:Name="Back_btn" Grid.Column="0"  Grid.Row="0" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Left"  Margin="5,0,0,0"  BorderBrush="Transparent" Cursor="Hand"   Click="Back_btn_Click" >
+        <Button x:Name="Back_btn" Grid.Column="0"  Grid.Row="0" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Left"  Margin="5,0,0,0"  BorderBrush="Transparent" Cursor="Hand"   Click="Back_btn_Click" Loaded="Back_btn_Loaded" >
 
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
@@ -68,7 +68,7 @@
 
         </Button>
 
-        <Button x:Name="User_btn" Grid.Column="6"  Grid.Row="0" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Right"  Margin="0,0,5,0"  BorderBrush="Transparent" Cursor="Hand"   Click="User_btn_Click" >
+        <Button x:Name="User_btn" Grid.Column="6"  Grid.Row="0" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Right"  Margin="0,0,5,0"  BorderBrush="Transparent" Cursor="Hand"   Click="User_btn_Click" Loaded="User_btn_Loaded" >
 
             <Button.Style>
                 <Style TargetType="{x:Type Button}">

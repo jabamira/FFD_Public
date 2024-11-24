@@ -44,5 +44,24 @@ namespace FastFoodDelivery
         {
             PageFunc.GoBack(this.NavigationService);
         }
+
+        //LOADERS
+        private void Back_btn_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (sender is FrameworkElement AnimObj)
+            {
+                AnimObj.MouseEnter += (sender, e) => Animations.StartAnimation(Animations.CreateScaleAnimationStandartIn(), sender, false);
+                AnimObj.MouseLeave += (sender, e) => Animations.StartAnimation(Animations.CreateScaleAnimationStandartOut(), sender, false);
+            }
+        }
+
+        private void Shop_btn_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (sender is FrameworkElement AnimObj)
+            {
+                AnimObj.MouseEnter += (sender, e) => Animations.StartAnimation(Animations.CreateScaleAnimationStandartIn(), sender, false);
+                AnimObj.MouseLeave += (sender, e) => Animations.StartAnimation(Animations.CreateScaleAnimationStandartOut(), sender, false);
+            }
+        }
     }
 }

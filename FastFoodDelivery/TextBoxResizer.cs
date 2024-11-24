@@ -16,11 +16,14 @@ namespace FastFoodDelivery
     {
         public static void ResizeTextBox(TextBox textBox, Rectangle rectangle)
         {
-           
-            double textWidth = MeasureTextWidth(textBox.Text, textBox.FontFamily, textBox.FontSize)+20;
-            Debug.WriteLine(textWidth);
-            
+            if (textBox != null) 
+            {
+                double textWidth = MeasureTextWidth(textBox.Text, textBox.FontFamily, textBox.FontSize) + 20;
+                Debug.WriteLine(textWidth);
+
                 rectangle.Width = textWidth;
+            }
+           
             
                
             

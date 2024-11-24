@@ -180,8 +180,16 @@ namespace FastFoodDelivery
             }
 
         }
-        
-       
+
+        private async void User_btn_Click(object sender, RoutedEventArgs e)
+        {
+
+            var nav = this.NavigationService;
+            PageFunc.OpenPage(new UserPage(User), User, nav);
+
+        }
+
+
         //CHANGERS
 
         private void ComboBox_ItemType_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -210,14 +218,23 @@ namespace FastFoodDelivery
             Background_Search_box = template?.FindName("Background_Search_box", Search_box) as Rectangle;
             Line_Search = template?.FindName("Line_Search", Search_box) as Rectangle;
 
+            if (sender is FrameworkElement AnimObj)
+            {
+                AnimObj.GotFocus += (sender, e) => Animations.StartAnimation(Animations.CreateScaleAnimationStandartIn(), sender,false);
+                AnimObj.LostFocus += (sender, e) => Animations.StartAnimation(Animations.CreateScaleAnimationStandartOut(), sender, false);
+            }
+
         }
 
-        private async void User_btn_Click(object sender, RoutedEventArgs e)
-        {
+      
 
-            var nav = this.NavigationService;
-            PageFunc.OpenPage(new UserPage(User),User,nav);
-                
+        private void User_btn_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (sender is FrameworkElement AnimObj)
+            {
+                AnimObj.MouseEnter += (sender, e) => Animations.StartAnimation(Animations.CreateScaleAnimationStandartIn(), sender, false);
+                AnimObj.MouseLeave += (sender, e) => Animations.StartAnimation(Animations.CreateScaleAnimationStandartOut(), sender, false);
+            }
         }
     }
 }

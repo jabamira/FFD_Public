@@ -28,38 +28,194 @@
         <Rectangle x:Name="Background_rect" Fill="#222831" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" Grid.RowSpan="6"/>
 
 
-
-
-        <TextBox x:Name="Login_box" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Background="Transparent"
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" Grid.RowSpan="4"  Margin="0 -70 0 0">
+            <TextBox x:Name="Login_box" Grid.Column="2" Grid.Row="1"  Background="Transparent"
              FontSize="17" FontFamily="/Fonts/#Cabin" TextAlignment="Left"
              Foreground="#EEEEEE" ForceCursor="True" MaxLength="20"  Text="Enter Login"
-             TextChanged="Login_box_TextChanged" LostFocus="Login_box_LostFocus" GotFocus="Login_box_GotFocus" Margin="30,0,0,0" Loaded="Login_box_Loaded">
-            <TextBox.Style>
-                <Style TargetType="{x:Type TextBox}">
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type TextBox}">
-                                <Grid>
-                                    <Rectangle x:Name="Background_login_log" Fill="#393E46"  MinWidth="250" MaxWidth="500" Height="50" RadiusX="17" RadiusY="17" Width="250" />
-                                    <Rectangle x:Name="Line_login" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="15 0 0 6" MinWidth="60" Width="102" Height="5" MaxWidth="200" Fill="#00ADB5"  RadiusX="5" RadiusY="5"/>
+             TextChanged="Login_box_TextChanged" LostFocus="Login_box_LostFocus" GotFocus="Login_box_GotFocus" Margin="0,0,0,40" Loaded="Login_box_Loaded" Width="256">
+                <TextBox.Style>
+                    <Style TargetType="{x:Type TextBox}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type TextBox}">
+                                    <Grid>
+                                        <Rectangle x:Name="Background_login_log" Fill="#393E46"  MinWidth="250" MaxWidth="500" Height="50" RadiusX="17" RadiusY="17" Width="250" />
+                                        <Rectangle x:Name="Line_login" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,4" MinWidth="60" Width="102" Height="5" MaxWidth="200" Fill="#00ADB5"  RadiusX="5" RadiusY="5"/>
 
-                                    <ScrollViewer x:Name="PART_ContentHost"  Height="24" Width="180"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 8 0 0" Cursor="IBeam" />
-                                </Grid>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </TextBox.Style>
-        </TextBox>
+                                        <ScrollViewer x:Name="PART_ContentHost"  Height="24" Width="180"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 8 0 0" Cursor="IBeam" />
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
+
+            <TextBox x:Name="Password_container" Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent"
+   FontSize="17" FontFamily="/Fonts/#Cabin" TextAlignment="Left" Visibility="Visible"  Margin="0,0,0,15" Loaded="Password_container_Loaded" 
+>
+                <TextBox.Style>
+                    <Style TargetType="{x:Type TextBox}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type TextBox}">
+                                    <Grid>
+                                        <Rectangle x:Name="Background_password" Fill="#393E46"  MinWidth="250" MaxWidth="500" Height="50" RadiusX="17" RadiusY="17" Width="250" />
+                                        <Rectangle x:Name="Line_password" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="15 0 0 5" MinWidth="60" Width="142" MaxWidth="200" Height="5"  Fill="#00ADB5"  RadiusX="5" RadiusY="5"/>
+
+                                        <TextBox x:Name="Text_Password_box" Height="24" Width="180"  BorderThickness="0" 
+                               
+                               MaxLength="24" Text="Enter Password" Background="Transparent"  Margin="20 10 0 0"   VerticalAlignment="Center"  HorizontalAlignment="Left"
+                               
+                               FontFamily="/Fonts/#Cabin" Foreground="#EEEEEE"  GotFocus="Text_Password_box_GotFocus" LostFocus="Text_Password_box_LostFocus" Visibility="Visible" TextChanged="Text_Password_box_TextChanged" />
 
 
+                                        <PasswordBox x:Name="Password_box" Height="24" Width="180"  VerticalAlignment="Center"  HorizontalAlignment="Left"
+                                   
+                                   Background="Transparent" BorderThickness="0" Margin="20 15 10 10" 
+                                   
+                                   FontSize="17" Password="" FontFamily="/Fonts/#Cabin" Foreground="#EEEEEE"
+                                   
+                                   GotFocus="Password_box_GotFocus" LostFocus="Password_box_LostFocus" 
+                                   
+                                   MaxLength="24" PasswordChanged="Password_box_PasswordChanged" />
+                                    </Grid>
+                                    <ControlTemplate.Triggers>
 
 
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
+
+            <Label x:Name="Not_reg_label" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center"  
+                Height="30" Width="110" Content="Not register yet"
+                Foreground="#EEEEEE" MouseLeftButtonDown="Not_reg_label_MouseLeftButtonDown" Margin="170,0,0,0" VerticalAlignment="Top"  >
+                <Label.Style>
+
+                    <Style TargetType="{x:Type Label}">
+                        <Setter Property="Template">
+
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Label}">
+                                    <Grid>
+                                        <Rectangle x:Name="Underline_register" Height="3" Fill="#00ADB5" RadiusX="5" RadiusY="5" Margin="0 20 10 1"/>
+                                        <Label  x:Name="PART_ContentHost"   FontSize="14"  FontFamily="/Fonts/#Cabin" Foreground="#EEEEEE" Content="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}"/>
 
 
-        <CheckBox x:Name="Password_check_box" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Width="15"
+                                    </Grid>
+
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="Underline_register" Property="Opacity" Value="1" />
+
+                                        </Trigger>
+                                        <Trigger Property="IsMouseOver" Value="False">
+                                            <Setter TargetName="Underline_register" Property="Opacity" Value="1" />
+
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Label.Style>
+            </Label>
+
+            <TextBox x:Name="Reply_password_container" Grid.Column="2" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent"
+            FontSize="17" FontFamily="/Fonts/#Cabin" TextAlignment="Left" Visibility="Visible"  Margin="0,10,0,40" Loaded="Reply_password_container_Loaded" 
+      >
+                <TextBox.Style>
+                    <Style TargetType="{x:Type TextBox}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type TextBox}">
+                                    <Grid>
+                                        <Rectangle x:Name="Background_password_reply" Fill="#393E46"  MinWidth="250" MaxWidth="500" Height="50" RadiusX="17" RadiusY="17" Width="250" />
+                                        <Rectangle x:Name="Line_password_reply" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="15 0 0 5" MinWidth="60" Width="142" Height="5" MaxWidth="200" Fill="#00ADB5"  RadiusX="5" RadiusY="5"/>
+
+
+                                        <TextBox x:Name="Text_reply_box" Height="24" Width="180"  BorderThickness="0" 
+                                     
+                                     MaxLength="24" Text="Reply Password" Background="Transparent"  Margin="20 10 0 0"   VerticalAlignment="Center"  HorizontalAlignment="Left"
+                                     
+                                     FontFamily="/Fonts/#Cabin" Foreground="#EEEEEE"  GotFocus="Reply_password_box_text_GotFocus" LostFocus="Reply_password_box_text_LostFocus" Visibility="Visible" TextChanged="Text_reply_box_TextChanged" />
+
+
+                                        <PasswordBox x:Name="Password_reply_box" Height="24" Width="180"  VerticalAlignment="Center"  HorizontalAlignment="Left"
+                                         
+                                         Background="Transparent" BorderThickness="0" Margin="20 15 10 10" 
+                                         
+                                         FontSize="17" Password="" FontFamily="/Fonts/#Cabin" Foreground="#EEEEEE"
+                                         
+                                         GotFocus="Password_reply_box_GotFocus" LostFocus="Password_reply_box_LostFocus" 
+                                         
+                                         MaxLength="24" PasswordChanged="Password_reply_box_PasswordChanged" />
+                                    </Grid>
+                                    <ControlTemplate.Triggers>
+
+
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
+
+
+            <Button x:Name="Login_btn" Grid.Column="2"  Grid.Row="3"  VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="0,10,0,0"  
+                   Background="Transparent" BorderBrush="Transparent" Cursor="Hand"  Loaded="Login_btn_Loaded" Click="Login_btn_Click" >
+
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Grid>
+                                        <Rectangle x:Name="Login_btn_rect"  Grid.Column="2" Grid.Row="2"  RadiusX="17" RadiusY="17"
+                                VerticalAlignment="Center" HorizontalAlignment="Center" Fill="#393E46"  
+                                 MinWidth="250" MaxWidth="500" Height="50" />
+                                        <Rectangle x:Name="Login_btn_howered"  Grid.Column="2" Grid.Row="2"  RadiusX="17" RadiusY="17"
+                                VerticalAlignment="Center" HorizontalAlignment="Center" Fill="#EEEEEE" 
+                                MinWidth="250" MaxWidth="500" Height="50" Width="250" Opacity="1"  />
+                                        <Label x:Name="Login_label" Content="Login" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                                   FontSize="22" FontFamily="/Fonts/#Cabin" Foreground="#EEEEEE"  />
+                                        <Rectangle  x:Name="Line_log_btn" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                                    MinWidth="65" Width="65"  MaxWidth="470" Height="5" Margin="5 0 5 5"
+                                    Fill="#00ADB5"  RadiusX="5" RadiusY="5"   />
+                                    </Grid>
+
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="Login_btn_howered" Property="Opacity" Value="0.1" />
+
+
+                                        </Trigger>
+                                        <Trigger Property="IsMouseOver" Value="False">
+                                            <Setter TargetName="Login_btn_howered" Property="Opacity" Value="0.0" />
+
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+
+                            </Setter.Value>
+
+                        </Setter>
+                    </Style>
+
+                </Button.Style>
+
+            </Button>
+        </StackPanel>
+
+
+        <CheckBox x:Name="Password_check_box" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="15"
         Background="#393E46" BorderThickness="0"  IsChecked="False"  Checked="Password_check_box_Checked" Cursor="Hand"
-        Unchecked="Password_check_box_Unchecked" Margin="295,0,0,0" Height="16" RenderTransformOrigin="-0.297,1.84" >
+        Unchecked="Password_check_box_Unchecked" Margin="5,57,0,0" Height="16" RenderTransformOrigin="-0.297,1.84" >
 
             <CheckBox.Style>
                 <Style TargetType="{x:Type CheckBox}">
@@ -95,88 +251,8 @@
         </CheckBox>
 
 
-        <Label Grid.Column="2" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" HorizontalContentAlignment="Left" 
-             Content="Show Passwords" FontSize="14"  Visibility="Visible" FontFamily="/Fonts/#Cabin" Foreground="#EEEEEE" Margin="320,0,0,0" Height="26" Width="109" Grid.ColumnSpan="2"/>
-
-
-
-        <TextBox x:Name="Password_container" Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Background="Transparent"
-          FontSize="17" FontFamily="/Fonts/#Cabin" TextAlignment="Left" Visibility="Visible"  Margin="30,0,0,0" Loaded="Password_container_Loaded" 
-       >
-            <TextBox.Style>
-                <Style TargetType="{x:Type TextBox}">
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type TextBox}">
-                                <Grid>
-                                    <Rectangle x:Name="Background_password" Fill="#393E46"  MinWidth="250" MaxWidth="500" Height="50" RadiusX="17" RadiusY="17" Width="250" />
-                                    <Rectangle x:Name="Line_password" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="15 0 0 5" MinWidth="60" Width="142" MaxWidth="200" Height="5"  Fill="#00ADB5"  RadiusX="5" RadiusY="5"/>
-
-                                    <TextBox x:Name="Text_Password_box" Height="24" Width="180"  BorderThickness="0" 
-                                      
-                                      MaxLength="24" Text="Enter Password" Background="Transparent"  Margin="20 10 0 0"   VerticalAlignment="Center"  HorizontalAlignment="Left"
-                                      
-                                      FontFamily="/Fonts/#Cabin" Foreground="#EEEEEE"  GotFocus="Text_Password_box_GotFocus" LostFocus="Text_Password_box_LostFocus" Visibility="Visible" TextChanged="Text_Password_box_TextChanged" />
-
-
-                                    <PasswordBox x:Name="Password_box" Height="24" Width="180"  VerticalAlignment="Center"  HorizontalAlignment="Left"
-                                          
-                                          Background="Transparent" BorderThickness="0" Margin="20 15 10 10" 
-                                          
-                                          FontSize="17" Password="" FontFamily="/Fonts/#Cabin" Foreground="#EEEEEE"
-                                          
-                                          GotFocus="Password_box_GotFocus" LostFocus="Password_box_LostFocus" 
-                                          
-                                          MaxLength="24" PasswordChanged="Password_box_PasswordChanged" />
-                                </Grid>
-                                <ControlTemplate.Triggers>
-
-
-                                </ControlTemplate.Triggers>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </TextBox.Style>
-        </TextBox>
-
-
-        <Label x:Name="Not_reg_label" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center"  
- Height="30" Width="110" Content="Not register yet"
- 
- 
- Foreground="#EEEEEE" MouseLeftButtonDown="Not_reg_label_MouseLeftButtonDown" Margin="179,75,0,0" VerticalAlignment="Top"  >
-            <Label.Style>
-
-                <Style TargetType="{x:Type Label}">
-                    <Setter Property="Template">
-
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type Label}">
-                                <Grid>
-                                    <Rectangle x:Name="Underline_register" Height="3" Fill="#00ADB5" RadiusX="5" RadiusY="5" Margin="0 20 10 1"/>
-                                    <Label  x:Name="PART_ContentHost"   FontSize="14"  FontFamily="/Fonts/#Cabin" Foreground="#EEEEEE" Content="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}"/>
-
-
-                                </Grid>
-
-                                <ControlTemplate.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter TargetName="Underline_register" Property="Opacity" Value="1" />
-
-                                    </Trigger>
-                                    <Trigger Property="IsMouseOver" Value="False">
-                                        <Setter TargetName="Underline_register" Property="Opacity" Value="1" />
-
-                                    </Trigger>
-                                </ControlTemplate.Triggers>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </Label.Style>
-        </Label>
-
+        <Label Grid.Column="3" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" HorizontalContentAlignment="Left" 
+             Content="Show Passwords" FontSize="14"  Visibility="Visible" FontFamily="/Fonts/#Cabin" Foreground="#EEEEEE" Margin="30,52,0,0" Height="26" Width="109"/>
 
         <Label x:Name="Match_label" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Left"  VerticalAlignment="Center"
               Height="30" Width="152" Foreground="#EEEEEE" Content="Passwords are different" FontSize="14" 
@@ -184,94 +260,8 @@
         />
 
 
-
-
-        <TextBox x:Name="Reply_password_container" Grid.Column="2" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Background="Transparent"
-                 FontSize="17" FontFamily="/Fonts/#Cabin" TextAlignment="Left" Visibility="Hidden"  Margin="30,0,0,0" 
-              >
-            <TextBox.Style>
-                <Style TargetType="{x:Type TextBox}">
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type TextBox}">
-                                <Grid>
-                                    <Rectangle x:Name="Background_password_reply" Fill="#393E46"  MinWidth="250" MaxWidth="500" Height="50" RadiusX="17" RadiusY="17" Width="250" />
-                                    <Rectangle x:Name="Line_password_reply" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="15 0 0 5" MinWidth="60" Width="142" Height="5" MaxWidth="200" Fill="#00ADB5"  RadiusX="5" RadiusY="5"/>
-
-                                    <TextBox x:Name="Text_reply_box" Height="24" Width="180"  BorderThickness="0" 
-                                             
-                                             MaxLength="24" Text="Reply Password" Background="Transparent"  Margin="20 10 0 0"   VerticalAlignment="Center"  HorizontalAlignment="Left"
-                                             
-                                             FontFamily="/Fonts/#Cabin" Foreground="#EEEEEE"  GotFocus="Reply_password_box_text_GotFocus" LostFocus="Reply_password_box_text_LostFocus" Visibility="Visible" TextChanged="Text_reply_box_TextChanged" />
-
-
-                                    <PasswordBox x:Name="Password_reply_box" Height="24" Width="180"  VerticalAlignment="Center"  HorizontalAlignment="Left"
-                                                 
-                                                 Background="Transparent" BorderThickness="0" Margin="20 15 10 10" 
-                                                 
-                                                 FontSize="17" Password="" FontFamily="/Fonts/#Cabin" Foreground="#EEEEEE"
-                                                 
-                                                 GotFocus="Password_reply_box_GotFocus" LostFocus="Password_reply_box_LostFocus" 
-                                                 
-                                                 MaxLength="24" PasswordChanged="Password_reply_box_PasswordChanged" />
-                                </Grid>
-                                <ControlTemplate.Triggers>
-
-
-                                </ControlTemplate.Triggers>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </TextBox.Style>
-        </TextBox>
-
-
-        <Button x:Name="Login_btn" Grid.Column="2"  Grid.Row="3" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Left"  Margin="30,0,0,0"  BorderBrush="Transparent" Cursor="Hand"  Loaded="Login_btn_Loaded" Click="Login_btn_Click" >
-
-            <Button.Style>
-                <Style TargetType="{x:Type Button}">
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type Button}">
-                                <Grid>
-                                    <Rectangle x:Name="Login_btn_rect"  Grid.Column="2" Grid.Row="2"  RadiusX="17" RadiusY="17"
-                                        VerticalAlignment="Center" HorizontalAlignment="Center" Fill="#393E46"  
-                                         MinWidth="250" MaxWidth="500" Height="50" />
-                                    <Rectangle x:Name="Login_btn_howered"  Grid.Column="2" Grid.Row="2"  RadiusX="17" RadiusY="17"
-                                        VerticalAlignment="Center" HorizontalAlignment="Center" Fill="#EEEEEE" 
-                                        MinWidth="250" MaxWidth="500" Height="50" Width="250" Opacity="1"  />
-                                    <Label x:Name="Login_label" Content="Login" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
-                                           FontSize="22" FontFamily="/Fonts/#Cabin" Foreground="#EEEEEE"  />
-                                    <Rectangle  x:Name="Line_log_btn" HorizontalAlignment="Center" VerticalAlignment="Bottom"
-                                            MinWidth="65" Width="65"  MaxWidth="470" Height="5" Margin="5 0 5 5"
-                                            Fill="#00ADB5"  RadiusX="5" RadiusY="5"   />
-                                </Grid>
-
-                                <ControlTemplate.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter TargetName="Login_btn_howered" Property="Opacity" Value="0.1" />
-
-                                    </Trigger>
-                                    <Trigger Property="IsMouseOver" Value="False">
-                                        <Setter TargetName="Login_btn_howered" Property="Opacity" Value="0.0" />
-
-                                    </Trigger>
-                                </ControlTemplate.Triggers>
-                            </ControlTemplate>
-
-                        </Setter.Value>
-
-                    </Setter>
-                </Style>
-
-            </Button.Style>
-
-        </Button>
-
-
         <local:DonutSpinner x:Name="donutSpinner" Width="32" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="3"
         Visibility="Collapsed" SpinnerColor="#00ADB5" Duration="0:0:0.85" Margin="0,39,0,37"/>
-       
+
     </Grid>
 </Page>
