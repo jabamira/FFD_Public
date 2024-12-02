@@ -24,7 +24,7 @@ namespace FastFoodDelivery
         {
             if (UseMySql)
             {
-                optionsBuilder.UseMySql("server=46.30.47.248;user=Bighouse;password=52;database=FFD;",
+                optionsBuilder.UseMySql("Строка подключения(убрал тк. публичный репозиторй)",
                                 new MySqlServerVersion(new Version(5, 7, 42)));
             }
             else 

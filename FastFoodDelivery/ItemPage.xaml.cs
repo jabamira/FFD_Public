@@ -30,7 +30,7 @@ namespace FastFoodDelivery
             StockCount_box.Text = "In Stock: " + Preitem.StockCount.ToString();
             if (Preitem.ForAdult)
             {
-                ForAdult_box.Text = "Only For Adults 18++";
+                ForAdult_box.Text = "Only For Adults 18+";
             }
             else 
             {
